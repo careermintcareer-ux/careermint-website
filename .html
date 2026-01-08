@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAREERMINT - Education & Admission Consultancy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header/Logo */
+        .header {
+            background: #1a1a2e;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #FFD700;
+            text-align: center;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            text-align: center;
+            color: white;
+            font-size: 0.9em;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a2e;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease;
+            color: #1a1a2e;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1.2s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Problems Section */
+        .problems {
+            padding: 80px 20px;
+            background: #f9f9f9;
+        }
+
+        .problems h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .problem-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .problem-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .problem-item::before {
+            content: "❌";
+            font-size: 2em;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .solution-box {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a2e;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #FFA500;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .service-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .service-card li:last-child {
+            border-bottom: none;
+        }
+
+        .benefit {
+            color: #25D366;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .benefit::before {
+            content: "🟢 ";
+        }
+
+        /* Trust Section */
+        .trust {
+            padding: 80px 20px;
+            background: #f9f9f9;
+        }
+
+        .trust h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .trust-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .trust-item::before {
+            content: "✔";
+            color: #25D366;
+            font-size: 2.5em;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a2e;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Fees Section */
+        .fees {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .fees::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+        }
+
+        .fees h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            color: #FFD700;
+        }
+
+        .fees-content {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .fees-note {
+            background: rgba(255, 215, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            font-style: italic;
+            border: 2px solid #FFD700;
+        }
+
+        /* Who We Help */
+        .who-we-help {
+            padding: 80px 20px;
+            background: #f9f9f9;
+        }
+
+        .who-we-help h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .help-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a2e;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 3em;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 20px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-form {
+            background: #1a1a2e;
+            color: #FFD700;
+            padding: 20px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            transition: transform 0.3s;
+            border: 3px solid #1a1a2e;
+        }
+
+        .btn-form:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer .company-name {
+            color: #FFD700;
+            font-size: 1.3em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Enquiry Form Section */
+        .enquiry-form {
+            padding: 80px 20px;
+            background: #f9f9f9;
+        }
+
+        .enquiry-form h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .enquiry-form p {
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .form-container iframe {
+            border-radius: 10px;
+            min-height: 1682px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .service-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                flex-direction: column;
+            }
+
+            .form-container {
+                padding: 15px;
+            }
+
+            .form-container iframe {
+                min-height: 1500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">CAREERMINT</div>
+            <div class="tagline">Education & Admission Consultancy</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Confused About College, Course, or Online Degree? We Guide You.</h1>
+            <p>CAREERMINT provides admission guidance for Online Universities and Regular Institutes through trusted partnerships like College Vidya.</p>
+            <a href="https://wa.me/918837076183?text=Hi%20CAREERMINT%20I%20need%20admission%20guidance" class="cta-button">📲 Get Free Counselling on WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems">
+        <div class="container">
+            <h2>Choosing the Wrong Course Costs Time & Money</h2>
+            <div class="problem-grid">
+                <div class="problem-item">
+                    <p>Too many online universities, no clarity</p>
+                </div>
+                <div class="problem-item">
+                    <p>Fake agents & misleading promises</p>
+                </div>
+                <div class="problem-item">
+                    <p>Unsure about degree validity (UGC/AICTE)</p>
+                </div>
+                <div class="problem-item">
+                    <p>Confused between online vs regular courses</p>
+                </div>
+            </div>
+            <div class="solution-box">
+                CAREERMINT helps you choose right course, right college, right mode.
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2>Our Services (Education Consultancy)</h2>
+            <div class="service-cards">
+                <div class="service-card">
+                    <h3>🎓 Online Course Admission (via College Vidya)</h3>
+                    <p><strong>Online UG / PG programs</strong></p>
+                    <ul>
+                        <li>MBA, MCA, BBA, BCA</li>
+                        <li>BA, B.Com, M.Com</li>
+                        <li>UGC-approved universities only</li>
+                    </ul>
+                    <div class="benefit">Free counselling</div>
+                    <div class="benefit">Support from enquiry to admission</div>
+                    <div class="benefit">EMI & scholarship guidance</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>🎓 Regular Course Admission</h3>
+                    <p><strong>Departments:</strong></p>
+                    <ul>
+                        <li>Arts | Commerce | Management</li>
+                        <li>Computer & IT | Science</li>
+                        <li>Medical & Paramedical</li>
+                        <li>Engineering & Polytechnic</li>
+                        <li>Teacher Training</li>
+                        <li>Skill & Vocational Courses</li>
+                    </ul>
+                    <div class="benefit">Course comparison</div>
+                    <div class="benefit">Fee structure explanation</div>
+                    <div class="benefit">Admission process support</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>🏫 Offline / Regular Institute Admission</h3>
+                    <ul>
+                        <li>Local colleges & private institutes</li>
+                        <li>Diploma / Skill-based courses</li>
+                        <li>Distance & regular mode support</li>
+                    </ul>
+                    <div class="benefit">Course comparison</div>
+                    <div class="benefit">Fee structure explanation</div>
+                    <div class="benefit">Admission process support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust">
+        <div class="container">
+            <h2>Why Choose CAREERMINT</h2>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <p>Official partner of College Vidya</p>
+                </div>
+                <div class="trust-item">
+                    <p>Works with verified universities</p>
+                </div>
+                <div class="trust-item">
+                    <p>No fake placement promises</p>
+                </div>
+                <div class="trust-item">
+                    <p>Student-first guidance</p>
+                </div>
+                <div class="trust-item">
+                    <p>Online + Offline options in one place</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <p>Free counselling call</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <p>Course & college comparison</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <p>Admission via official portal</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <p>Post-admission support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fees Section -->
+    <section class="fees">
+        <div class="container">
+            <h2>Fees & Transparency</h2>
+            <div class="fees-content">
+                <p>💡 <strong>Counselling is FREE for students</strong></p>
+                <p>CAREERMINT earns commission directly from universities & institutes after successful admission.</p>
+                <div class="fees-note">
+                    <strong>Important Note:</strong><br>
+                    We do not charge students for counselling and do not guarantee jobs or placements.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Help -->
+    <section class="who-we-help">
+        <div class="container">
+            <h2>Who We Help</h2>
+            <div class="help-grid">
+                <div class="help-item">Class 12 pass students</div>
+                <div class="help-item">Working professionals</div>
+                <div class="help-item">Career switchers</div>
+                <div class="help-item">Students looking for online degrees</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Contact CAREERMINT</h2>
+            <p style="font-size: 1.5em; margin-bottom: 40px;">Get FREE education counselling via WhatsApp or fill our enquiry form below.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/918837076183?text=Hi%20CAREERMINT%20I%20need%20admission%20guidance" class="btn-whatsapp">📲 Chat on WhatsApp</a>
+                <a href="#enquiry-form" class="btn-form">📩 Fill Enquiry Form Below</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enquiry Form Section -->
+    <section class="enquiry-form" id="enquiry-form">
+        <div class="container">
+            <h2>Admission Enquiry Form</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px; color: #666;">Fill the form below for FREE counselling. Our team will contact you shortly.</p>
+            <div class="form-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScAfNXlKduNFE9MwPLai6mFNf16cD7DjBK9QVl-iOTptUhxWw/viewform?embedded=true" 
+                        width="100%" 
+                        height="1682" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0"
+                        style="border: none; display: block;">
+                    Loading…
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="company-name">© 2026 CAREERMINT</p>
+            <p>Education & Admission Consultancy</p>
+            <p>Partnered with College Vidya</p>
+        </div>
+    </footer>
+</body>
+</html>
